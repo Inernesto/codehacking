@@ -11,23 +11,33 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.sass('resources/sass/app.scss', 'public/css');
 
-    .sass('resources/sass/app.scss', 'public/css');
+//    js('resources/js/app.js', 'public/js')
 
-mix.styles([
-	
-	'resources/css/libs/blog-post.css',
-	'resources/css/libs/bootstrap.css',
-	'resources/css/libs/font-awesome.css',
-	'resources/css/libs/metisMenu.css',
-	'resources/css/libs/sb-admin-2.css'
-], './public/css/libs.css')
+mix.styles('resources/css/libs/bootstrap.css', './public/css/bootstrap.css')
 
-	.scripts([
-	
-	'resources/js/libs/jquery.js',
-	'resources/js/libs/bootstrap.js',
-	'resources/js/libs/metisMenu.js',
-	'resources/js/libs/sb-admin-2.js'
-], './public/js/libs.js');
+	.styles('resources/css/libs/bootstrap.min.css', './public/css/bootstrap.min.css')
+
+	.styles('resources/css/libs/blog-post.css', './public/css/blog-post.css')
+
+	.styles('resources/css/libs/font-awesome.css', './public/css/font-awesome.css')
+
+    .styles('resources/css/libs/metisMenu.css', './public/css/metisMenu.css')
+
+	.styles('resources/css/libs/sb-admin-2.css', './public/css/sb-admin-2.css')
+		
+    .styles('resources/css/libs/styles.css', './public/css/styles.css')
+
+		
+	.scripts('resources/js/libs/jquery.js', './public/js/jquery.js')
+
+	.scripts('resources/js/libs/bootstrap.js', './public/js/bootstrap.js')
+
+	.scripts('resources/js/libs/bootstrap.min.js', './public/js/bootstrap.min.js')
+
+	.scripts('resources/js/libs/metisMenu.js', './public/js/metisMenu.js')
+
+	.scripts('resources/js/libs/sb-admin-2.js', './public/js/sb-admin-2.js')
+
+	.scripts('resources/js/libs/scripts.js', './public/js/scripts.js');
