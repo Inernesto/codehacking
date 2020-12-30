@@ -37,10 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 	
-	
+/** Custom Methods **/
 	
 	public function role(){
 		
 		return $this->belongsTo('App\Role');
+	}
+	
+	public function photo(){
+		
+		return $this->belongsTo('App\Photo');
 	}
 }
