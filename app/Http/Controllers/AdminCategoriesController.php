@@ -4,17 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests\PostsCreateRequest;
-
-use Illuminate\Support\Facades\Auth;
-
-use App\Post;
-
-use App\Photo;
-
 use App\Category;
 
-class AdminPostsController extends Controller
+class AdminCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,10 +16,9 @@ class AdminPostsController extends Controller
     public function index()
     {
         //
+		$categories = Category::all();
 		
-		$posts = Post::all();
-		
-		return view('admin.posts.index', compact('posts'));
+		return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -38,10 +29,6 @@ class AdminPostsController extends Controller
     public function create()
     {
         //
-		
-		$categories = Category::pluck('name', 'id')->all();
-		
-		return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -50,28 +37,13 @@ class AdminPostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostsCreateRequest $request)
+    public function store(Request $request)
     {
         //
 		
-		$input = $request->all();
+		Category::create($request->all());
 		
-		$user = Auth::user();
-		
-		if($file = $request->file('photo_id')){
-			
-			$name = time() . $file->getClientOriginalName();
-			
-			$file->move('images', $name);
-			
-			$photo = Photo::create(['file'=>$name]);
-			
-			$input['photo_id'] = $photo->id;
-		}
-		
-		$user->post()->create($input);
-		
-		return redirect('/admin/posts');
+		return redirect('/admin/categories');
     }
 
     /**
@@ -94,12 +66,6 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
-		
-		$post = Post::findOrFail($id);
-		
-		$categories = Category::pluck('name', 'id')->all();
-			
-		return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -112,23 +78,6 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
-		
-		$input = $request->all();
-		
-			if($file = $request->file('photo_id')){
-
-				$name = time() . $file->getClientOriginalName();
-
-				$file->move('images', $name);
-
-				$photo = Photo::create(['file'=>$name]);
-
-				$input['photo_id'] = $photo->id;
-			}
-		
-		Auth::user()->post()->whereId($id)->first()->update($input);
-		
-		return redirect('/admin/posts');
     }
 
     /**
@@ -140,13 +89,5 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
-		
-		$post = Post::findOrFail($id);
-		
-		unlink(public_path() . $post->photo->file);
-		
-		$post->delete();
-		
-		return redirect('/admin/posts');
     }
 }
