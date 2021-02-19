@@ -8,6 +8,8 @@
 	
 	{!! Form::open(['method'=>'POST', 'action'=>'AdminPostsController@store', 'files'=>true]) !!}
 	
+	{{csrf_field()}}
+	
 	<div class="form-group">
 		{!! Form::label('title', 'Title:') !!}
 		{!! Form::text('title', null, ['class'=>'form-control']) !!}

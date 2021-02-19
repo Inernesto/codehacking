@@ -12,6 +12,8 @@
     <title>Admin</title>
 
     <!-- Bootstrap Core CSS -->
+    <link href="{{asset('css/app.css')}}" rel="stylesheet">    
+    
     <link href="{{asset('css/blog-post.css')}}" rel="stylesheet">
     
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
@@ -162,7 +164,7 @@
                             </li>
 
                             <li>
-                                <a href="#">All Comments</a>
+                                <a href="{{route('comments.index')}}">All Comments</a>
                             </li>
 
                         </ul>

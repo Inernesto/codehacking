@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Post;
 
+use App\User;
+
 use App\Photo;
 
 use App\Category;
@@ -25,7 +27,7 @@ class AdminPostsController extends Controller
     {
         //
 		
-		$posts = Post::all();
+		$posts = Post::paginate(2);
 		
 		return view('admin.posts.index', compact('posts'));
     }
@@ -126,7 +128,12 @@ class AdminPostsController extends Controller
 				$input['photo_id'] = $photo->id;
 			}
 		
-		Auth::user()->post()->whereId($id)->first()->update($input);
+		$user = User::findOrFail($input['user_id']);
+		$user->post()->whereId($id)->first()->update($input);
+		
+		
+//		Auth::user()->post()->whereId($id)->first()->update($input);
+		
 		
 		return redirect('/admin/posts');
     }
@@ -149,4 +156,17 @@ class AdminPostsController extends Controller
 		
 		return redirect('/admin/posts');
     }
+	
+	
+	public function post($slug)
+	{
+			
+		$post = Post::where('slug', '=', $slug)->firstOrFail();
+		
+		$comments = $post->comments()->whereIsActive(1)->get();
+		
+		return view('post', compact('post', 'comments'));
+		
+	}
+	
 }

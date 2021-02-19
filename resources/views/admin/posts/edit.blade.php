@@ -8,6 +8,10 @@
 	
 	{!! Form::model($post, ['method'=>'PATCH', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
 	
+	{{csrf_field()}}
+	
+	<input type="hidden" name="user_id" value="{{$post->user->id}}">
+	
 	<div class="form-group">
 		{!! Form::label('title', 'Title:') !!}
 		{!! Form::text('title', null, ['class'=>'form-control']) !!}
