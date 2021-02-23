@@ -11,8 +11,7 @@
 
     <title>Admin</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">    
+    <!-- Bootstrap Core CSS -->   
     
     <link href="{{asset('css/blog-post.css')}}" rel="stylesheet">
     
@@ -20,18 +19,10 @@
     
     <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">
     
-    <link href="{{asset('css/melisMenu.css')}}" rel="stylesheet">
+    <link href="{{asset('css/metisMenu.css')}}" rel="stylesheet">
     
     <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    
 
     @yield('styles')
 
@@ -87,36 +78,6 @@
 
 
         </ul>
-
-
-
-
-
-
-<!--
-        {{--<ul class="nav navbar-nav navbar-right">--}}
-        {{--@if(auth()->guest())--}}
-        {{--@if(!Request::is('auth/login'))--}}
-        {{--<li><a href="{{ url('/auth/login') }}">Login</a></li>--}}
-        {{--@endif--}}
-        {{--@if(!Request::is('auth/register'))--}}
-        {{--<li><a href="{{ url('/auth/register') }}">Register</a></li>--}}
-        {{--@endif--}}
-        {{--@else--}}
-        {{--<li class="dropdown">--}}
-        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>--}}
-        {{--<ul class="dropdown-menu" role="menu">--}}
-        {{--<li><a href="{{ url('/auth/logout') }}">Logout</a></li>--}}
-
-        {{--<li><a href="{{ url('/admin/profile') }}/{{auth()->user()->id}}">Profile</a></li>--}}
-        {{--</ul>--}}
-        {{--</li>--}}
-        {{--@endif--}}
-        {{--</ul>--}}
--->
-
-
-
 
 
         <div class="navbar-default sidebar" role="navigation">
@@ -336,11 +297,6 @@
 
     </div>
 
-<!--</div>-->
-
-
-
-
 
 
 <!-- Page Content -->
@@ -364,6 +320,8 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
+
+
 <script src="{{asset('js/jquery.js')}}"></script>
 <script src="{{asset('js/bootstrap.js')}}"></script>
 <script src="{{asset('js/metisMenu.js')}}"></script>
@@ -372,9 +330,6 @@
 
 
 @yield('scripts')
-
-
-
 
 
 </body>

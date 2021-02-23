@@ -40,10 +40,56 @@ class AdminMediasController extends Controller
 		
 		$photo = Photo::findOrFail($id);
 		
+		if(file_exists(public_path() . $photo->file)){
+
 		unlink(public_path() . $photo->file);
+
+		}
 		
 		$photo->delete();
 		
 		return redirect('/admin/media');
 	}
+	
+	
+	public function deleteMedia(Request $request){
+		
+		// for deleting single media
+		
+		if(isset($request->delete_single)){
+			
+			$this->destroy($request->photo);
+			
+			return redirect()->back();
+		}
+		
+		
+		// for deleting bulk media
+		
+		if(isset($request->delete_bulk) && !empty($request->checkBoxArray)){
+		
+			
+			$photos = Photo::findOrFail($request->checkBoxArray);
+
+			foreach($photos as $photo){
+
+			if(file_exists(public_path() . $photo->file)){
+				
+			unlink(public_path() . $photo->file);
+				
+			}
+			
+			$photo->delete();
+				
+			}
+
+			return redirect()->back();
+			
+		}
+		
+		
+		return redirect()->back();	
+	}
+	
+	
 }

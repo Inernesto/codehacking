@@ -1,26 +1,8 @@
-//// Fonts
-//@import url('https://fonts.googleapis.com/css?family=Nunito');
-//
-//// Variables
-//@import 'variables';
-//
-//// Bootstrap
-//@import '~bootstrap/scss/bootstrap';
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-#admin-page {
-	
-	padding-top: 0px;
-}
+// Variables
+@import 'variables';
 
-.blog-post-content {
-	
-	padding-top: 75px;
-}
-
-.comment-reply {
-	
-	padding-top: 35px;
-	
-	display: none;
-}
-
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';

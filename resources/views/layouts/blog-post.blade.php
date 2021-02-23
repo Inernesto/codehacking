@@ -21,7 +21,6 @@
     
     
     <!-- Bootstrap Core CSS -->
-    <link href="{{asset('css/app.css')}}" rel="stylesheet">    
     
     <link href="{{asset('css/blog-post.css')}}" rel="stylesheet">
     

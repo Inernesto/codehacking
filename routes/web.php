@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
 Route::group(['middleware' => 'admin'], function(){
-
+	
 	
 Route::get('/admin', function(){
 	
@@ -50,6 +50,13 @@ Route::get('/admin', function(){
 	
 });
 
+/********* Middleware For Bulk Deletion In Media Page ************/
+Route::group(['middleware' => 'auth'], function(){
+	
+	Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
+	
+});
+
 
 /********* Middleware For Reply Section In The Individual Page ************/
 Route::group(['middleware' => 'auth'], function(){
@@ -58,3 +65,16 @@ Route::group(['middleware' => 'auth'], function(){
 	
 });
 
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -1,15 +1,16 @@
 {
+    "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/blog-post.css": "/css/blog-post.css",
     "/css/bootstrap.css": "/css/bootstrap.css",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css",
-    "/css/blog-post.css": "/css/blog-post.css",
     "/css/font-awesome.css": "/css/font-awesome.css",
     "/css/metisMenu.css": "/css/metisMenu.css",
     "/css/sb-admin-2.css": "/css/sb-admin-2.css",
     "/css/styles.css": "/css/styles.css",
-    "/js/jquery.js": "/js/jquery.js",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/bootstrap.min.js": "/js/bootstrap.min.js",
+    "/js/jquery.js": "/js/jquery.js",
     "/js/metisMenu.js": "/js/metisMenu.js",
     "/js/sb-admin-2.js": "/js/sb-admin-2.js",
     "/js/scripts.js": "/js/scripts.js"
